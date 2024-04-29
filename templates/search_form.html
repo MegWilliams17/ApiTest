@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Search</title>
+</head>
+<body>
+
+  <form method="POST" action="{% url 'search' %}">
+    {% csrf_token %}
+    <label for="search-input">Search for a photo:</label><br>
+    <input id="search-input" type="text" placeholder="Enter photo name" name="photo"><br>
+    <button type="submit">Search</button>
+  </form>
+  
+    
+</body>
+</html>

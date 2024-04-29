@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+</head>
+<body>
+  <h1>Search Results</h1>
+
+  <!-- Display search results -->
+  {% if search_results %}
+      <h2>Search Results for "{{ photo_name }}"</h2>
+      <div class="search-results">
+          <!-- Loop through search results and display -->
+          {% for result in search_results %}
+              <!-- Display each search result -->
+              <div>{{ result }}</div>
+          {% endfor %}
+      </div>
+  {% else %}
+      <p>No search results found for "{{ photo_name }}"</p>
+  {% endif %}
+
+  <!-- Display random Unsplash images -->
+  {% if unsplash_images %}
+      <div id="unsplash-gallery">
+          <h2>Random Unsplash Images for "{{ photo_name }}"</h2>
+          <div class="image-gallery">
+              {% for image in unsplash_images %}
+                  <img src="{{ image }}" alt="Unsplash Image">
+              {% endfor %}
+          </div>
+      </div>
+  {% else %}
+      <p>No images found for "{{ photo_name }}"</p>
+  {% endif %}
+
+</body>
+</html>

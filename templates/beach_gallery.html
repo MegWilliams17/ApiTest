@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  <title>Beach gallery</title>
+  <link rel="stylesheet" href="{% static 'randomFonts.js' %}" id="font-link">  
+<script src="{% static 'unsplashApi.js' %}"></script>
+</head>
+<body>
+  <!-- beach_gallery.html -->
+
+
+<div id="unsplash-gallery">
+  <h2>Random Unsplash Beach Images</h2>
+      <div class="card-deck">
+        {% for image in unsplash_images %}
+          <div class="card">
+            <img class="card-img-top" src="{{ image }}" alt="Beach Image">
+            <div class="card-body">
+              <!-- You can add additional content or styling for the card body if needed -->
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+</div>
+  <script src="{% static 'randomColor.js' %}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

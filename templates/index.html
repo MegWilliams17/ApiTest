@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+<meta charset="UTF-8">  
+<meta http-equiv="X-UA-Compatible" content="IE=edge">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<link rel="stylesheet" href="{% static 'styles.css' %}" />  
+<title>Welcome To Random Facts And Images</title>  
+<link rel="stylesheet" href="{% static 'randomFonts.js' %}" id="font-link">  
+<script src="{% static 'unsplashApi.js' %}"></script>
+</head>
+<body>  
+<h1>Welcome To Random Facts And Images.</h1>  
+<p>I Am Your Host, Williams, Ekemini Samuel.</p>
+  <br>
+<p> In this site, you would see galleries of Beaches, Dogs, Cats, Activities, Facts, and Users.</p> 
+  <br>
+<!-- Use your own colors create cards for the random facts and students, -->  
+<!-- Pro Tip: You can use multiple pages -->  
+<!-- Pro Tip: Implement a refresh/ reload button in every page -->
+  <!-- Search form -->  
+<form id="search-form" method="POST" action="{% url 'search' %}">
+      {% csrf_token %}      
+<label for="search-input">Search for a photo:</label><br>      
+<input id="search-input" type="text" placeholder="Enter photo name" name="photo"><br>      
+<button type="submit">Search</button><br>
+      {% if photo %}
+          {% if photo_found %}              
+<img src="{{ photo }}" alt="Random Photo">
+          {% else %}              
+<p>No photo found for "{{ photo }}"</p>
+          {% endif %}
+      {% endif %}  
+</form>
+  <!-- Display search results -->  
+<div id="search-results">      
+<!-- Search results will be displayed here -->  
+</div>
+
+
+  <br>
+  <p>Check out our galleries:</p>
+  <ul>
+      <li><a href="{% url 'beach_gallery' %}">Beach Gallery</a></li>
+      <li><a href="{% url 'food_gallery' %}">Food Gallery</a></li>
+  </ul>
+  
+
+    <!-- Random Facts -->
+    <div class="card">
+      <h2 id="randomFactHeading">Random Fact</h2>
+      <p id="randomFact">{{ fact }}</p>
+      <button id="reloadFactButton">Reload</button>
+    </div>
+
+    <!-- Display random user data -->
+    <div class="card">
+      <h2 
+id="randomUserHeading">Random User</h2>
+      <p>Name: {{ user.name.first }} {{ user.name.last }}</p>
+      <img src="{{ user.picture.large }}" alt="Random User Image">
+      <p>Email: {{ user.email }}</p>
+      <button id="reloadUserButton">Reload</button>
+    </div>
+
+    <div class="card">
+      <h2 id="randomImageHeading">Random Dog Image</h2>
+      <img id="randomDogImage" src="{{ dog }}" alt="Random Dog Image">
+      <button id="reloadDogButton">Reload</button>
+    </div>
+
+
+    <div class="card">
+      <h2 id="randomBoredFactsHeading">Bored?</h2>
+      <p id="randomActivity">{{ activity }}</p>
+      <button id="reloadActivityButton">Reload</button>
+    </div>
+
+    <div class="card">
+    <h2 id="randomCatImageHeading">Random Cat Image</h2>
+      <img id="randomCatImage" src="{{ cat }}" alt="Random Cat Image">
+      <button id="reloadCatButton">Reload</button>
+    </div>
+
+    {% if images %}
+      <div class="unsplash-images">
+        <h2>Random Unsplash Images</h2>
+        <div class="image-gallery">
+          {% for image in images %}
+            <img src="{{ image }}" alt="Unsplash Image">
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+
+    <script src="{% static 'randomColor.js' %}"></script>
+    <script src="{% static 'search.js' %}"></script>
+     <script src="{% static 'randomReload.js' %}"></script>
+    
+  </body>
+  </html>
+
+
+
+
+
+    
+    
