@@ -15,13 +15,11 @@ Understand API
 Understand software development & Deployments
 Understand software testing with pytest
 Understand Database integration with Python Django
-By the end of the bootcamp/sessions, you will be required to submit a project. Note: Clone this repo, edit to the requirements/instructions assigned by the Instructor
+Note: Clone this repo, edit to the requirements/instructions assigned by the Instructor
 
-Submit the code for review
+😊
 
-Note that the Best project will be rewarded with a certificate and some dollars 😊
-
-Note that the code will be updated everytime in class
+Note that the code will be updated everytime.
 
 create your template folder, inside the folder create an index html code
 
